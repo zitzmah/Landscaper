@@ -1,10 +1,32 @@
-console.log("Hello")
-
 //You are starting a landscaping business, but all you have are your teeth.
-let day = 0;
-let money = 0;
-const toolbox = ["teeth"]
-let tool = "teeth"
+
+let money;
+const toolbox = [];
+let tool;
+
+const start = () => {
+    tool = "teeth"
+    toolbox.push(tool)
+    money = 20;
+    askForAction();
+}
+
+const showStatus = () => {
+    alert("You have $" + money + " and have worked " + day + " days")
+}
+
+const askForAction = () => {
+    showStatus();
+    const choice = prompt("What do you want to do?", "shop / work / restart");
+    if (choice === "shop") {
+
+    } else if (choice === "work") {
+
+    } else if (choice === "restart") {
+        start()
+    }
+}
+
 
 //Using just your teeth, you can spend the day cutting lawns and make $1. You can do this as much as you want.
 if (tool === "teeth") {
@@ -12,8 +34,13 @@ if (tool === "teeth") {
 }
 
 //At any point, if you are currently using your teeth, you can buy a pair of rusty scissors for $5. You can do this once, assuming you have enough money.
-if (tool === "teeth" && money >= 5 && !toolbox.includes("scissors")) {
-    toolbox.push("scissors")
+const buyScissors = () => {
+    if (tool === "teeth" && money >= 5 && !toolbox.includes("scissors")) {
+        toolbox.push("scissors")
+    } else {
+        console.log("Sorry you don't have enough money or experience")
+    }
+    askForAction();
 }
 
 //Using the rusty scissors, you can spend the day cutting lawns and make $5. You can do this as much as you want.
@@ -22,8 +49,13 @@ if (tool === "scissors") {
 }
 
 //At any point, if you are currently using rusty scissors, you can buy an old-timey push lawnmower for $25. You can do this once, assuming you have enough money.
-if (tool === "scissors" && money >= 25 && !toolbox.includes("lawnmower")) {
-    toolbox.push("lawnmower")
+const buyLawnmower = () => {
+    if (tool === "scissors" && money >= 25 && !toolbox.includes("lawnmower")) {
+        toolbox.push("lawnmower")
+    } else {
+        console.log("Sorry you don't have enough money or experience")
+    }
+    askForAction();
 }
 
 //Using the old-timey push lawnmower, you can spend the day cutting lawns and make $50. You can do this as much as you want.
@@ -32,18 +64,28 @@ if (tool === "lawnmower") {
 }
 
 //At any point, if you are currently using the old-timey push lawnmower, you can buy a fancy battery-powered lawnmower for $250. You can do this once, assuming you have enough money.
-if (tool === "lawnmower" && money >= 250 && !toolbox.includes("fancyLawnmower")) {
-    toolbox.push("fancyLawnmower")
+const buyFancyLawnmower = () => {
+    if (tool === "lawnmower" && money >= 250 && !toolbox.includes("fancyLawnmower")) {
+        toolbox.push("fancyLawnmower")
+    } else {
+        console.log("Sorry you don't have enough money or experience")
+    }
+    askForAction();
 }
 
 //Using the the fancy battery-powered lawnmower, you can spend the day cutting lawns and make $100. You can do this as much as you want.
 if (tool === "fancyLawnmower") {
-    money = money + (day * 100)
+    money = money + 100
 }
 
 //At any point, if you are currently using the fancy battery-powered lawnmower, you can hire a team of starving students for $500. You can do this once, assuming you have enough money.
-if (tool === "fancyLawnmower" && money >= 500 && !toolbox.includes("students")) {
-    toolbox.push("students")
+const hireStudents = () => {
+    if (tool === "fancyLawnmower" && money >= 500 && !toolbox.includes("students")) {
+        toolbox.push("students")
+    } else {
+        console.log("Sorry you don't have enough money or experience")
+    }
+    askForAction();
 }
 
 //Using the the team of starving students, you can spend the day cutting lawns and make $250. You can do this as much as you want.
