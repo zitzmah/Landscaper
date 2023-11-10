@@ -42,7 +42,9 @@ if (tool === "fancyLawnmower"){
 }
 
 //At any point, if you are currently using the fancy battery-powered lawnmower, you can hire a team of starving students for $500. You can do this once, assuming you have enough money.
-
+if (tool === "fancyLawnmower" && money >= 500 && !toolbox.includes("students")) {
+    toolbox.push("students")
+}
 
 //Using the the team of starving students, you can spend the day cutting lawns and make $250. You can do this as much as you want.
 
