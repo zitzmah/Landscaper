@@ -30,3 +30,13 @@ if (tool === "scissors" && money >= 25 && !toolbox.includes("lawnmower")) {
 if (tool === "lawnmower"){
     money = money + (day*50)
 }
+
+//At any point, if you are currently using the old-timey push lawnmower, you can buy a fancy battery-powered lawnmower for $250. You can do this once, assuming you have enough money.
+if (tool === "lawnmower" && money >= 250 && !toolbox.includes("fancyLawnmower")) {
+    toolbox.push("fancyLawnmower")
+}
+
+//Using the the fancy battery-powered lawnmower, you can spend the day cutting lawns and make $100. You can do this as much as you want.
+
+
+//
