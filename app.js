@@ -37,6 +37,13 @@ if (tool === "lawnmower" && money >= 250 && !toolbox.includes("fancyLawnmower"))
 }
 
 //Using the the fancy battery-powered lawnmower, you can spend the day cutting lawns and make $100. You can do this as much as you want.
+if (tool === "fancyLawnmower"){
+    money = money + (day*100)
+}
+
+//At any point, if you are currently using the fancy battery-powered lawnmower, you can hire a team of starving students for $500. You can do this once, assuming you have enough money.
 
 
-//
+//Using the the team of starving students, you can spend the day cutting lawns and make $250. You can do this as much as you want.
+
+//You win the game when you have a team of starving students and $1000. In this situation, send a message to the user telling them, they've won.
