@@ -25,3 +25,8 @@ if (tool === "scissors") {
 if (tool === "scissors" && money >= 25 && !toolbox.includes("lawnmower")) {
     toolbox.push("lawnmower")
 }
+
+//Using the old-timey push lawnmower, you can spend the day cutting lawns and make $50. You can do this as much as you want.
+if (tool === "lawnmower"){
+    money = money + (day*50)
+}
