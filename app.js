@@ -28,15 +28,15 @@ const work = () => {
         askForAction()
     } else if (tool === "lawnmower") {//Using the old-timey push lawnmower, you can spend the day cutting lawns and make $50. You can do this as much as you want.
         money = money + 50
-        alert("You made $5! Now you have $" + money)
+        alert("You made $50! Now you have $" + money)
         askForAction()
     } else if (tool === "Fancy Lawnmower") {//Using the the fancy battery-powered lawnmower, you can spend the day cutting lawns and make $100. You can do this as much as you want.
         money = money + 100
-        alert("You made $5! Now you have $" + money)
+        alert("You made $100! Now you have $" + money)
         askForAction()
     } else if (tool === "students") {//Using the the team of starving students, you can spend the day cutting lawns and make $250. You can do this as much as you want.
         money = money + 250
-        alert("You made $5! Now you have $" + money)
+        alert("You made $250! Now you have $" + money)
         askForAction()
     } else if (toolbox.includes("students") && money >= 1000) {//You win the game when you have a team of starving students and $1000. In this situation, send a message to the user telling them, they've won.
         alert("You Win!")
@@ -48,8 +48,10 @@ const buyScissors = () => {
     if (money >= 5 && !toolbox.includes("scissors")) {
         toolbox.push("scissors")
         tool = "scissors"
+        money = money - 5
+        showStatus()
     } else {
-        console.log("Sorry you don't have enough money or experience")
+        alert("Sorry you don't have enough money or experience")
     }
     askForAction();
 }
@@ -59,8 +61,10 @@ const buyLawnmower = () => {
     if (money >= 25 && !toolbox.includes("lawnmower")) {
         toolbox.push("lawnmower")
         tool = "lawnmower"
+        money = money - 25
+        showStatus()
     } else {
-        console.log("Sorry you don't have enough money or experience")
+        alert("Sorry you don't have enough money or experience")
     }
     askForAction();
 }
@@ -70,8 +74,10 @@ const buyFancyLawnmower = () => {
     if (money >= 250 && !toolbox.includes("Fancy Lawnmower")) {
         toolbox.push("Fancy Lawnmower")
         tool = "Fancy Lawnmower"
+        money = money - 250
+        showStatus()
     } else {
-        console.log("Sorry you don't have enough money or experience")
+        alert("Sorry you don't have enough money or experience")
     }
     askForAction();
 }
@@ -81,8 +87,10 @@ const hireStudents = () => {
     if (money >= 500 && !toolbox.includes("students")) {
         toolbox.push("students")
         tool = "students"
+        money = money - 500
+        showStatus()
     } else {
-        console.log("Sorry you don't have enough money or experience")
+        alert("Sorry you don't have enough money or experience")
     }
     askForAction();
 }
@@ -96,11 +104,11 @@ const shop = () => {
         buyFancyLawnmower()
     } else if (tool === "Fancy Lawnmower") {
         hireStudents()
-    } else if (toolbox.includes("students") && money > 1000) {
-        console.log("keep working")
+    } else if (toolbox.includes("students") && money < 1000) {
+        alert("keep working")
         askForAction()
     } else if (toolbox.includes("students") && money >= 1000) {
-        console.log("You win!")
+        alert("You win!")
     }
 }
 
@@ -114,6 +122,9 @@ const askForAction = () => {
         showStatus()
     } else if (choice === "restart") {
         start()
+    } else {
+        alert("Sorry that's not an option, please try again")
+        askForAction()
     }
 }
 
