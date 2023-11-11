@@ -16,6 +16,10 @@ const showStatus = () => {
     alert("You have $" + money + " and you are using " + tool + " to cut grass.")
 }
 
+const sorry = () => {
+    alert("Sorry you don't have enough money or experience")
+}
+
 const work = () => {
     //Using just your teeth, you can spend the day cutting lawns and make $1. You can do this as much as you want.
     if (tool === "teeth") {
@@ -34,7 +38,7 @@ const work = () => {
         money = money + 100
         alert("You made $100! Now you have $" + money)
         askForAction()
-    } else if (tool === "students") {//Using the the team of starving students, you can spend the day cutting lawns and make $250. You can do this as much as you want.
+    } else if (tool === "students" && money < 1000) {//Using the the team of starving students, you can spend the day cutting lawns and make $250. You can do this as much as you want.
         money = money + 250
         alert("You made $250! Now you have $" + money)
         askForAction()
@@ -51,7 +55,7 @@ const buyScissors = () => {
         money = money - 5
         showStatus()
     } else {
-        alert("Sorry you don't have enough money or experience")
+        sorry()
     }
     askForAction();
 }
@@ -64,7 +68,7 @@ const buyLawnmower = () => {
         money = money - 25
         showStatus()
     } else {
-        alert("Sorry you don't have enough money or experience")
+        sorry()
     }
     askForAction();
 }
@@ -77,7 +81,7 @@ const buyFancyLawnmower = () => {
         money = money - 250
         showStatus()
     } else {
-        alert("Sorry you don't have enough money or experience")
+        sorry()
     }
     askForAction();
 }
@@ -90,7 +94,7 @@ const hireStudents = () => {
         money = money - 500
         showStatus()
     } else {
-        alert("Sorry you don't have enough money or experience")
+        sorry()
     }
     askForAction();
 }
@@ -116,10 +120,8 @@ const askForAction = () => {
     const choice = prompt("What do you want to do?", "shop / work / restart");
     if (choice === "shop") {
         shop()
-        showStatus()
     } else if (choice === "work") {
         work()
-        showStatus()
     } else if (choice === "restart") {
         start()
     } else {
